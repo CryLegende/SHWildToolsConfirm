@@ -1,0 +1,4 @@
+# Message a envoyer au joueur pour qu'il confirme la vente.
+# Placeholders disponibles:
+# {price} - Le prix total de la vente
+confirmation-message: "&7&l« &e&lSH &8&l» &7Cliquez à nouveau sur le même coffre pour confirmer la vente de son contenu pour &e{price} SHCoins"
