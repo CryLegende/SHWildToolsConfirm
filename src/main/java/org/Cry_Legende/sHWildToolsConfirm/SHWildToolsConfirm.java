@@ -12,6 +12,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -40,6 +41,12 @@ public class SHWildToolsConfirm extends JavaPlugin implements Listener {
     @Override
     public void onDisable() {
         confirmations.clear();
+    }
+
+    // Vide la confirmation en attente du joueur : sans ça la map garde une entrée par joueur pour toujours
+    @EventHandler
+    public void onQuit(PlayerQuitEvent event) {
+        confirmations.remove(event.getPlayer().getUniqueId());
     }
 
     private void loadConfigMessage() {
